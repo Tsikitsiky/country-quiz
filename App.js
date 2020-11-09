@@ -24,11 +24,17 @@ function App() {
         <div>
             <h1>Country Quizz</h1>
             <h3>{questions[questionIndex].question}</h3>
-            <div>
+            <div className="answers">
                 {questions[questionIndex].answers.map(answer =>
-                    <button key={answer.country} value={answer.isTrue} onClick={handleClick}>{answer.country}</button>)}
+                    <button 
+                        key={answer.country} 
+                        value={answer.isTrue} 
+                        onClick={handleClick}
+                        className={IsNext && "trueAnswer" }>
+                            {answer.country}
+                    </button>)}
             </div>
-            {IsNext && <button onClick={nextQuestion}>Next</button>}
+            {IsNext && <button className="nextBtn" onClick={nextQuestion}>Next</button>}
             {IsResult && <div>
                 <h2>Result</h2>
                 <p>Score: {score}</p>

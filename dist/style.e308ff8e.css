@@ -1,0 +1,50 @@
+body {
+    background-color: #6066D0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+body > div {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+h3 {
+    color: #2F527B;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.answers button {
+    padding: 0.5rem;
+    background-color: transparent;
+    border: 1px solid #6066D0;
+    color: #6066D0;
+    border-radius: 5px;
+}
+
+.answers button:hover {
+    background-color: #F9A826;
+    color: #ffffff;
+}
+
+.nextBtn {
+    background-color: #F9A826;
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.trueAnswer {
+    background-color: #EA8282;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
