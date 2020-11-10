@@ -33861,6 +33861,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = [{
+  flag: "",
   question: "Kabul is the capital of",
   answers: [{
     country: 'France',
@@ -33876,6 +33877,23 @@ var _default = [{
     isTrue: false
   }]
 }, {
+  flag: 'https://restcountries.eu/data/ala.svg',
+  question: "Which country does this flag belong to?",
+  answers: [{
+    country: 'Madagascar',
+    isTrue: true
+  }, {
+    country: 'Afghanistan',
+    isTrue: false
+  }, {
+    country: 'Palau',
+    isTrue: false
+  }, {
+    country: 'Philipine',
+    isTrue: false
+  }]
+}, {
+  flag: "",
   question: "Antananarivo is the capital of",
   answers: [{
     country: 'Madagascar',
@@ -33891,6 +33909,7 @@ var _default = [{
     isTrue: false
   }]
 }, {
+  flag: "",
   question: "Mariehamn is the capital of",
   answers: [{
     country: 'Malawi',
@@ -33906,6 +33925,7 @@ var _default = [{
     isTrue: false
   }]
 }, {
+  flag: "",
   question: "Pago Pago is the capital of",
   answers: [{
     country: 'American Samoa',
@@ -33921,6 +33941,7 @@ var _default = [{
     isTrue: false
   }]
 }, {
+  flag: "",
   question: "Luanda is the capital of",
   answers: [{
     country: 'Angola',
@@ -33937,7 +33958,83 @@ var _default = [{
   }]
 }];
 exports.default = _default;
-},{}],"App.js":[function(require,module,exports) {
+},{}],"pages/quizz.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _questions = _interopRequireDefault(require("../questions"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Quizz(_ref) {
+  var questionIndex = _ref.questionIndex,
+      IsNext = _ref.IsNext,
+      nextQuestion = _ref.nextQuestion,
+      handleClick = _ref.handleClick,
+      bgColor = _ref.bgColor;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("h3", null, _questions.default[questionIndex].question), /*#__PURE__*/_react.default.createElement("div", {
+    className: "answers"
+  }, _questions.default[questionIndex].answers.map(function (answer) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      key: answer.country
+    }, answer.flag === '' && /*#__PURE__*/_react.default.createElement("img", {
+      src: answer.flag
+    }), /*#__PURE__*/_react.default.createElement("button", {
+      value: answer.isTrue,
+      onClick: handleClick // style={{backgroundColor:bgColor}}
+
+    }, answer.country));
+  })), IsNext && /*#__PURE__*/_react.default.createElement("button", {
+    className: "nextBtn",
+    onClick: nextQuestion
+  }, "Next"));
+}
+
+var _default = Quizz;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../questions":"questions.js"}],"pages/result.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Result(_ref) {
+  var score = _ref.score,
+      setIsResult = _ref.setIsResult,
+      setQuest = _ref.setQuest,
+      setScore = _ref.setScore;
+
+  function handleClickBtn() {
+    setIsResult(false);
+    setScore(0);
+    setQuestionIndex(0);
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container result"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Result"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", score, " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
+    className: "tryAgainBtn",
+    onClick: handleClickBtn
+  }, "Try again"));
+}
+
+var _default = Result;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33946,6 +34043,12 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _quizz = _interopRequireDefault(require("./pages/quizz"));
+
+var _result = _interopRequireDefault(require("./pages/result"));
 
 var _questions = _interopRequireDefault(require("./questions"));
 
@@ -33988,16 +34091,34 @@ function App() {
       score = _useState8[0],
       setScore = _useState8[1];
 
+  var _useState9 = (0, _react.useState)('none'),
+      _useState10 = _slicedToArray(_useState9, 2),
+      bgColor = _useState10[0],
+      setBgColor = _useState10[1];
+
   function handleClick(e) {
     if (e.target.value === 'true') {
       setIsNext(true);
+      setBgColor('red');
     } else {
       setIsResult(true);
     }
+
+    console.log(e.target.value);
+  }
+
+  function randomNumber() {
+    var random = Math.floor(Math.random() * _questions.default.length);
+
+    if (random !== questionIndex) {
+      setQuestionIndex(random);
+    }
+
+    console.log(random);
   }
 
   function nextQuestion() {
-    setQuestionIndex(questionIndex + 1);
+    randomNumber();
     setIsNext(false);
     setScore(function (prevScore) {
       return prevScore + 1;
@@ -34005,24 +34126,24 @@ function App() {
     console.log(score);
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quizz"), /*#__PURE__*/_react.default.createElement("h3", null, _questions.default[questionIndex].question), /*#__PURE__*/_react.default.createElement("div", {
-    className: "answers"
-  }, _questions.default[questionIndex].answers.map(function (answer) {
-    return /*#__PURE__*/_react.default.createElement("button", {
-      key: answer.country,
-      value: answer.isTrue,
-      onClick: handleClick,
-      className: IsNext && "trueAnswer"
-    }, answer.country);
-  })), IsNext && /*#__PURE__*/_react.default.createElement("button", {
-    className: "nextBtn",
-    onClick: nextQuestion
-  }, "Next"), IsResult && /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Result"), /*#__PURE__*/_react.default.createElement("p", null, "Score: ", score), /*#__PURE__*/_react.default.createElement("button", null, "Try again")));
+  console.log(IsResult);
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quizz"), IsResult ? /*#__PURE__*/_react.default.createElement(_result.default, {
+    score: score,
+    setIsResult: setIsResult,
+    setQuestionIndex: setQuestionIndex,
+    setScore: setScore
+  }) : /*#__PURE__*/_react.default.createElement(_quizz.default, {
+    questionIndex: questionIndex,
+    IsNext: IsNext,
+    nextQuestion: nextQuestion,
+    handleClick: handleClick,
+    bgColor: bgColor
+  }));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./questions":"questions.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./pages/quizz":"pages/quizz.js","./pages/result":"pages/result.js","./questions":"questions.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34064,7 +34185,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60094" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49796" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

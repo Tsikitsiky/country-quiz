@@ -5,10 +5,15 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-body > div {
+h1 {
+    color: #ffffff;
+}
+
+.container {
     background-color: #ffffff;
     padding: 1rem;
     border-radius: 10px;
+    max-width: 464px;
 }
 
 h3 {
@@ -27,6 +32,7 @@ h3 {
     border: 1px solid #6066D0;
     color: #6066D0;
     border-radius: 5px;
+    width: 100%;
 }
 
 .answers button:hover {
@@ -43,8 +49,22 @@ h3 {
     border-radius: 10px;
 }
 
-.trueAnswer {
+.answers .trueAnswer {
     background-color: #EA8282;
+}
+
+.tryAgainBtn {
+    max-width: 209px;
+    max-height: 62px;
+    background-color: transparent;
+    color: #1D355D;
+    padding: 0.5rem 1rem;
+    border: 1px solid #1D355D;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #1D355D;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

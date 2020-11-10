@@ -1,5 +1,6 @@
  export default [
     {
+        flag:"",
         question: "Kabul is the capital of",
         answers: [
             {
@@ -22,6 +23,30 @@
         ]
     },
     {
+        flag: 'https://restcountries.eu/data/ala.svg',
+        question: "Which country does this flag belong to?",
+        answers: [
+            {
+                country: 'Madagascar',
+                isTrue: true
+            },
+            {
+                country: 'Afghanistan',
+                isTrue: false
+            },
+            {
+                country: 'Palau',
+                isTrue: false
+            },
+            {
+                country: 'Philipine',
+                isTrue: false
+            }
+
+        ]
+    },
+    {
+        flag:"",
         question: "Antananarivo is the capital of",
         answers: [
             {
@@ -44,6 +69,7 @@
         ]
     },
     {
+        flag:"",
         question: "Mariehamn is the capital of",
         answers: [
             {
@@ -66,6 +92,7 @@
         ]
     },
     {
+        flag:"",
         question: "Pago Pago is the capital of",
         answers: [
             {
@@ -88,6 +115,7 @@
         ]
     },
     {
+        flag:"",
         question: "Luanda is the capital of",
         answers: [
             {

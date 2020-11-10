@@ -1,46 +1,55 @@
 import React, { useState } from 'react';
-import questions from './questions'
+import { Route, Switch } from 'react-router-dom';
+import Quizz from './pages/quizz';
+import Result from './pages/result';
+import questions from './questions';
 
 function App() {
-    const [questionIndex, setQuestionIndex] = useState(0);
+     const [questionIndex, setQuestionIndex] = useState(0);
     const [IsNext, setIsNext] = useState(false);
     const [IsResult, setIsResult] = useState(false);
     const [score, setScore] = useState(0);
+    const [bgColor, setBgColor] = useState('none');
     function handleClick(e) {
         if(e.target.value === 'true') {
             setIsNext(true);
+            setBgColor('red');
         } else {
         setIsResult(true);
        }
+       console.log(e.target.value)
+    }
+
+    function randomNumber() {
+        const random = Math.floor(Math.random() * questions.length);
+        if(random !== questionIndex) {
+             setQuestionIndex(random)
+        }
+        console.log(random)
     }
 
     function nextQuestion() {
-        setQuestionIndex(questionIndex + 1);
+        randomNumber();
         setIsNext(false)
         setScore(prevScore => prevScore + 1)
         console.log(score)
     }
+    console.log(IsResult)
     return(
-        <div>
+        <>
             <h1>Country Quizz</h1>
-            <h3>{questions[questionIndex].question}</h3>
-            <div className="answers">
-                {questions[questionIndex].answers.map(answer =>
-                    <button 
-                        key={answer.country} 
-                        value={answer.isTrue} 
-                        onClick={handleClick}
-                        className={IsNext && "trueAnswer" }>
-                            {answer.country}
-                    </button>)}
-            </div>
-            {IsNext && <button className="nextBtn" onClick={nextQuestion}>Next</button>}
-            {IsResult && <div>
-                <h2>Result</h2>
-                <p>Score: {score}</p>
-                <button>Try again</button>
-                </div>}
-        </div>
+                    {IsResult ? <Result 
+                        score={score} 
+                        setIsResult={setIsResult} 
+                        setQuestionIndex={setQuestionIndex}
+                        setScore={setScore} /> 
+                    :<Quizz 
+                        questionIndex={questionIndex} 
+                        IsNext={IsNext} 
+                        nextQuestion={nextQuestion}
+                        handleClick={handleClick}
+                        bgColor = {bgColor} /> }
+        </>
     )
 }
 
