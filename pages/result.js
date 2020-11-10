@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Result({score, setIsResult,setQuest, setScore}) {
+function Result({score, setIsResult,setQuestionIndex, setScore}) {
     function handleClickBtn() {
         setIsResult(false);
         setScore(0);

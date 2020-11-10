@@ -33966,18 +33966,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _questions = _interopRequireDefault(require("../questions"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Quizz(_ref) {
   var questionIndex = _ref.questionIndex,
       IsNext = _ref.IsNext,
       nextQuestion = _ref.nextQuestion,
       handleClick = _ref.handleClick,
-      bgColor = _ref.bgColor;
+      rightAnswer = _ref.rightAnswer,
+      wrongAnswer = _ref.wrongAnswer;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("h3", null, _questions.default[questionIndex].question), /*#__PURE__*/_react.default.createElement("div", {
@@ -33988,6 +33993,7 @@ function Quizz(_ref) {
     }, answer.flag === '' && /*#__PURE__*/_react.default.createElement("img", {
       src: answer.flag
     }), /*#__PURE__*/_react.default.createElement("button", {
+      ref: answer.isTrue ? rightAnswer : wrongAnswer,
       value: answer.isTrue,
       onClick: handleClick // style={{backgroundColor:bgColor}}
 
@@ -34015,7 +34021,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Result(_ref) {
   var score = _ref.score,
       setIsResult = _ref.setIsResult,
-      setQuest = _ref.setQuest,
+      setQuestionIndex = _ref.setQuestionIndex,
       setScore = _ref.setScore;
 
   function handleClickBtn() {
@@ -34091,20 +34097,38 @@ function App() {
       score = _useState8[0],
       setScore = _useState8[1];
 
-  var _useState9 = (0, _react.useState)('none'),
+  var _useState9 = (0, _react.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
-      bgColor = _useState10[0],
-      setBgColor = _useState10[1];
+      isAnswer = _useState10[0],
+      setIsAnswer = _useState10[1];
+
+  var _useState11 = (0, _react.useState)('none'),
+      _useState12 = _slicedToArray(_useState11, 2),
+      bgColor = _useState12[0],
+      setBgColor = _useState12[1];
+
+  var rightAnswer = (0, _react.useRef)(null);
+  var wrongAnswer = (0, _react.useRef)(null);
+  var styles = {
+    backgroundColor: "green",
+    color: "white"
+  };
 
   function handleClick(e) {
     if (e.target.value === 'true') {
       setIsNext(true);
-      setBgColor('red');
+      rightAnswer.current.style.backgroundColor = "green";
+      rightAnswer.current.style.color = "white";
+      setIsAnswer(true);
     } else {
-      setIsResult(true);
+      // setIsResult(true);
+      rightAnswer.current.style.backgroundColor = "green";
+      rightAnswer.current.style.color = "white";
+      wrongAnswer.current.style.backgroundColor = "red";
+      wrongAnswer.current.style.color = "white";
+      setIsNext(true);
+      setIsAnswer(false);
     }
-
-    console.log(e.target.value);
   }
 
   function randomNumber() {
@@ -34112,21 +34136,29 @@ function App() {
 
     if (random !== questionIndex) {
       setQuestionIndex(random);
+    } else {
+      setQuestionIndex(function (prevQuest) {
+        return prevQuest + 1;
+      });
     }
-
-    console.log(random);
   }
 
   function nextQuestion() {
-    randomNumber();
-    setIsNext(false);
-    setScore(function (prevScore) {
-      return prevScore + 1;
-    });
-    console.log(score);
+    if (isAnswer) {
+      randomNumber();
+      setIsNext(false);
+      setScore(function (prevScore) {
+        return prevScore + 1;
+      });
+      rightAnswer.current.style.backgroundColor = "transparent";
+      rightAnswer.current.style.color = "#6066D0";
+      wrongAnswer.current.style.backgroundColor = "transparent";
+      wrongAnswer.current.style.color = "#6066D0";
+    } else {
+      setIsResult(true);
+    }
   }
 
-  console.log(IsResult);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quizz"), IsResult ? /*#__PURE__*/_react.default.createElement(_result.default, {
     score: score,
     setIsResult: setIsResult,
@@ -34137,7 +34169,9 @@ function App() {
     IsNext: IsNext,
     nextQuestion: nextQuestion,
     handleClick: handleClick,
-    bgColor: bgColor
+    bgColor: bgColor,
+    rightAnswer: rightAnswer,
+    wrongAnswer: wrongAnswer
   }));
 }
 
