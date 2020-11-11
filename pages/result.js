@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Result({score, setIsResult,setQuestionIndex, setScore, setIsNext}) {
+function Result({score, setIsResult,getRandomCountry, setScore, setIsNext}) {
     function handleClickBtn() {
         setIsResult(false);
         setScore(0);
-        setQuestionIndex(0);
+        getRandomCountry();
         setIsNext(false);
     }
     return(

@@ -6,6 +6,7 @@ body {
     display: flex;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
+    position: relative;
 }
 
 img {
@@ -16,16 +17,25 @@ h1 {
     color: #ffffff;
 }
 
+.startBtn {
+    border-radius: 5px;
+    border: none;
+    padding: 0.5rem;
+}
+
 .container {
     background-color: #ffffff;
-    padding: 1rem;
+    padding: 3rem 1rem;
     border-radius: 10px;
-    width: 264px;
-    height: 300px;
+    max-width: 274px;
+    height: 330px;
     background-image: url('/undraw_adventure_4hum.134ba6b2.svg');
     background-position: 110% 0%;
     background-repeat: no-repeat;
     background-size: 100px 60px;
+    position: absolute;
+    top: 65%;
+    
 }
 
 h3 {

@@ -34104,7 +34104,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63995" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53783" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -34281,4 +34281,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/country-quiz.e31bb0bc.js.map
+//# sourceMappingURL=/country-quiz-with-fetch.e31bb0bc.js.map

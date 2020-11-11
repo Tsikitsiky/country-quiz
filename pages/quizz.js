@@ -1,31 +1,55 @@
 import React, { useRef } from 'react';
-import questions from '../questions'
+
 
 function Quizz({
-    questionIndex, 
+    randomCountry,
+    randomAnswerOption, 
     IsNext, 
     nextQuestion, 
     handleClick, 
     rightAnswer, 
     wrongAnswer }) {
-    
+    const number = Math.floor(Math.random() * 2);
+    console.log(number)
     return(
         <div className="container">
-            {questions[questionIndex].flag !== '' && <img src={questions[questionIndex].flag}/>}
-            <h3>{questions[questionIndex].question}</h3>
+            {number === 0 ? 
+                <header>
+                    <img src={randomCountry.flag}/>
+                    <h3>Which country does this flag belong to?</h3>
+                </header> 
+                : <h3>{randomCountry.capital} is the the capital of </h3> }
+            
             <div className="answers">
-                {questions[questionIndex].answers.map(answer =>
-                    <div key={answer.country}>
-                    <button  
-                        ref={answer.isTrue ? rightAnswer : wrongAnswer}
-                        value={answer.isTrue} 
+                    <button 
+                        key={randomAnswerOption[0]} 
+                        value={randomAnswerOption[0]} 
                         onClick={handleClick}
-                        // style={{backgroundColor:bgColor}}
                     >
-                            {answer.country}
+                            {randomAnswerOption[0]}
                     </button>
-                    </div>
-                    )}
+                    <button 
+                        key={randomAnswerOption[1]} 
+                        value={randomAnswerOption[1]} 
+                        onClick={handleClick}
+                    >
+                            {randomAnswerOption[1]}
+                    </button>
+                    <button 
+                        key={randomAnswerOption[2]} 
+                        value={randomAnswerOption[2]} 
+                        onClick={handleClick}
+                    >
+                            {randomAnswerOption[2]}
+                    </button>
+                    <button 
+                        key={randomAnswerOption[3]} 
+                        value={randomAnswerOption[3]} 
+                        onClick={handleClick}
+                    >
+                            {randomAnswerOption[3]}
+                    </button>
+                    
             </div>
             {IsNext && <button className="nextBtn" onClick={nextQuestion}>Next</button>}
         </div>
