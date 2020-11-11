@@ -1,8 +1,15 @@
 body {
-    background-color: #6066D0;
+    background-image: url('/background.e3ad310f.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
     display: flex;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
+}
+
+img {
+    max-width: 50px;
 }
 
 h1 {
@@ -13,7 +20,12 @@ h1 {
     background-color: #ffffff;
     padding: 1rem;
     border-radius: 10px;
-    max-width: 464px;
+    width: 264px;
+    height: 300px;
+    background-image: url('/undraw_adventure_4hum.134ba6b2.svg');
+    background-position: 110% 0%;
+    background-repeat: no-repeat;
+    background-size: 100px 60px;
 }
 
 h3 {
@@ -49,9 +61,6 @@ h3 {
     border-radius: 10px;
 }
 
-.answers .trueAnswer {
-    background-color: #EA8282;
-}
 
 .tryAgainBtn {
     max-width: 209px;
@@ -61,6 +70,19 @@ h3 {
     padding: 0.5rem 1rem;
     border: 1px solid #1D355D;
     border-radius: 5px;
+}
+
+.result {
+    background-image: url('/undraw_winners_ao2o.53fb0fac.svg');
+    background-position: center 15%;
+    background-repeat: no-repeat;
+    background-size: 150px 100px;
+    padding-top: 140px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
 }
 
 h2 {

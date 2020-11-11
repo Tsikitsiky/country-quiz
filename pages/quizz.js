@@ -11,11 +11,11 @@ function Quizz({
     
     return(
         <div className="container">
+            {questions[questionIndex].flag !== '' && <img src={questions[questionIndex].flag}/>}
             <h3>{questions[questionIndex].question}</h3>
             <div className="answers">
                 {questions[questionIndex].answers.map(answer =>
                     <div key={answer.country}>
-                    {answer.flag === '' && <img src={answer.flag}/>}
                     <button  
                         ref={answer.isTrue ? rightAnswer : wrongAnswer}
                         value={answer.isTrue} 

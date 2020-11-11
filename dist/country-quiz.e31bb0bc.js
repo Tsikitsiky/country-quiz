@@ -33985,14 +33985,14 @@ function Quizz(_ref) {
       wrongAnswer = _ref.wrongAnswer;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, _questions.default[questionIndex].question), /*#__PURE__*/_react.default.createElement("div", {
+  }, _questions.default[questionIndex].flag !== '' && /*#__PURE__*/_react.default.createElement("img", {
+    src: _questions.default[questionIndex].flag
+  }), /*#__PURE__*/_react.default.createElement("h3", null, _questions.default[questionIndex].question), /*#__PURE__*/_react.default.createElement("div", {
     className: "answers"
   }, _questions.default[questionIndex].answers.map(function (answer) {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: answer.country
-    }, answer.flag === '' && /*#__PURE__*/_react.default.createElement("img", {
-      src: answer.flag
-    }), /*#__PURE__*/_react.default.createElement("button", {
+    }, /*#__PURE__*/_react.default.createElement("button", {
       ref: answer.isTrue ? rightAnswer : wrongAnswer,
       value: answer.isTrue,
       onClick: handleClick // style={{backgroundColor:bgColor}}
@@ -34022,12 +34022,14 @@ function Result(_ref) {
   var score = _ref.score,
       setIsResult = _ref.setIsResult,
       setQuestionIndex = _ref.setQuestionIndex,
-      setScore = _ref.setScore;
+      setScore = _ref.setScore,
+      setIsNext = _ref.setIsNext;
 
   function handleClickBtn() {
     setIsResult(false);
     setScore(0);
     setQuestionIndex(0);
+    setIsNext(false);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -34119,12 +34121,14 @@ function App() {
       setIsNext(true);
       rightAnswer.current.style.backgroundColor = "green";
       rightAnswer.current.style.color = "white";
+      rightAnswer.current.style.backgroundImage = 'url("check-24px.svg")'; // no-repeat 16px right';
+
       setIsAnswer(true);
     } else {
       // setIsResult(true);
       rightAnswer.current.style.backgroundColor = "green";
       rightAnswer.current.style.color = "white";
-      wrongAnswer.current.style.backgroundColor = "red";
+      wrongAnswer.current.style.backgroundColor = "#EA8282";
       wrongAnswer.current.style.color = "white";
       setIsNext(true);
       setIsAnswer(false);
@@ -34163,7 +34167,8 @@ function App() {
     score: score,
     setIsResult: setIsResult,
     setQuestionIndex: setQuestionIndex,
-    setScore: setScore
+    setScore: setScore,
+    setIsNext: setIsNext
   }) : /*#__PURE__*/_react.default.createElement(_quizz.default, {
     questionIndex: questionIndex,
     IsNext: IsNext,
@@ -34219,7 +34224,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49796" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50023" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

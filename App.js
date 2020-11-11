@@ -23,12 +23,14 @@ function App() {
             setIsNext(true);
             rightAnswer.current.style.backgroundColor = "green";
             rightAnswer.current.style.color = "white";
+            rightAnswer.current.style.backgroundImage ='url("check-24px.svg")';
+            // no-repeat 16px right';
             setIsAnswer(true)
         } else {
         // setIsResult(true);
         rightAnswer.current.style.backgroundColor = "green";
         rightAnswer.current.style.color = "white";
-        wrongAnswer.current.style.backgroundColor = "red";
+        wrongAnswer.current.style.backgroundColor = "#EA8282";
         wrongAnswer.current.style.color = "white";
         setIsNext(true);
         setIsAnswer(false);
@@ -67,7 +69,8 @@ function App() {
                         score={score} 
                         setIsResult={setIsResult} 
                         setQuestionIndex={setQuestionIndex}
-                        setScore={setScore} /> 
+                        setScore={setScore}
+                        setIsNext={setIsNext} /> 
                     :<Quizz 
                         questionIndex={questionIndex} 
                         IsNext={IsNext} 
