@@ -26,6 +26,7 @@ function App() {
         fetchCountries();
     }, [score]);
 
+    //get the country that we are going to use
     function getRandomCountry() {
         setIsStart(true);
         if(!countries.length) {
@@ -42,33 +43,37 @@ function App() {
         setRandomAnswerOption(randomOptions)
     }
 
+    //check whether the answer is right or wrong and change the background color
     function handleClick(e) {
         console.log(e.target.value)
-            console.log(randomCountry.name)
+        console.log(randomCountry.name)
         if(e.target.value === randomCountry.name) {
             setIsNext(true);
-            e.target.style.backgroundColor = "green";
+            e.target.style.backgroundColor = "#60BF88";
             e.target.style.color = "white";
-             e.target.style.backgroundImage = "url('check-24px.svg')";
+            e.target.style.backgroundImage = "url('check-24px.svg')";
             // no-repeat 16px right';
             setIsAnswer(true)
         } else {
             e.target.style.backgroundColor = "#EA8282";
             e.target.style.color = "white";
-           
-        // wrongAnswer.current.style.backgroundColor = "#EA8282";
-        // wrongAnswer.current.style.color = "white";
-        setIsNext(true);
-        setIsAnswer(false);
+            rightAnswer.current.style.backgroundColor = "#60BF88";
+            rightAnswer.current.style.color = "white";
+            setIsNext(true);
+            setIsAnswer(false);
        }
     }
 
     function nextQuestion() {
         if(isAnswer) {
+            //got to the next question
             getRandomCountry();
             setIsNext(false)
             setScore(prevScore => prevScore + 1);
+            rightAnswer.current.style.backgroundColor = "transparent";
+            rightAnswer.current.style.color = "#6066D0";
         } else {
+            //display the result
             setIsResult(true);
         }
         

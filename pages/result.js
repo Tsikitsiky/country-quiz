@@ -2,6 +2,7 @@ import React from 'react';
 
 function Result({score, setIsResult,getRandomCountry, setScore, setIsNext}) {
     function handleClickBtn() {
+        //reset everything to default
         setIsResult(false);
         setScore(0);
         getRandomCountry();
@@ -10,7 +11,7 @@ function Result({score, setIsResult,getRandomCountry, setScore, setIsNext}) {
     return(
         <div className="container result">
                 <h2>Result</h2>
-                <p>You got {score} correct answers</p>
+                <p>You got <b>{score}</b> correct answers</p>
                 <button className="tryAgainBtn" onClick={handleClickBtn}>Try again</button>
                 </div>
     )

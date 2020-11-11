@@ -33876,6 +33876,7 @@ function Quizz({
   rightAnswer,
   wrongAnswer
 }) {
+  //switch between two numbers to display flag question or capital question. if number ===0 flag, if 1 capital
   const number = Math.floor(Math.random() * 2);
   console.log(number);
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -33885,21 +33886,21 @@ function Quizz({
   }), /*#__PURE__*/_react.default.createElement("h3", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h3", null, randomCountry.capital, " is the the capital of "), /*#__PURE__*/_react.default.createElement("div", {
     className: "answers"
   }, /*#__PURE__*/_react.default.createElement("button", {
-    key: randomAnswerOption[0],
     value: randomAnswerOption[0],
-    onClick: handleClick
+    onClick: handleClick,
+    ref: randomAnswerOption[0] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[0]), /*#__PURE__*/_react.default.createElement("button", {
-    key: randomAnswerOption[1],
     value: randomAnswerOption[1],
-    onClick: handleClick
+    onClick: handleClick,
+    ref: randomAnswerOption[1] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[1]), /*#__PURE__*/_react.default.createElement("button", {
-    key: randomAnswerOption[2],
     value: randomAnswerOption[2],
-    onClick: handleClick
+    onClick: handleClick,
+    ref: randomAnswerOption[2] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[2]), /*#__PURE__*/_react.default.createElement("button", {
-    key: randomAnswerOption[3],
     value: randomAnswerOption[3],
-    onClick: handleClick
+    onClick: handleClick,
+    ref: randomAnswerOption[3] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[3])), IsNext && /*#__PURE__*/_react.default.createElement("button", {
     className: "nextBtn",
     onClick: nextQuestion
@@ -33928,6 +33929,7 @@ function Result({
   setIsNext
 }) {
   function handleClickBtn() {
+    //reset everything to default
     setIsResult(false);
     setScore(0);
     getRandomCountry();
@@ -33936,7 +33938,7 @@ function Result({
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container result"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Result"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", score, " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Result"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("b", null, score), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
     className: "tryAgainBtn",
     onClick: handleClickBtn
   }, "Try again"));
@@ -33986,7 +33988,7 @@ function App() {
 
   (0, _react.useEffect)(() => {
     fetchCountries();
-  }, [score]);
+  }, [score]); //get the country that we are going to use
 
   function getRandomCountry() {
     setIsStart(true);
@@ -34005,7 +34007,8 @@ function App() {
     });
     setRandomCountry(random);
     setRandomAnswerOption(randomOptions);
-  }
+  } //check whether the answer is right or wrong and change the background color
+
 
   function handleClick(e) {
     console.log(e.target.value);
@@ -34013,16 +34016,16 @@ function App() {
 
     if (e.target.value === randomCountry.name) {
       setIsNext(true);
-      e.target.style.backgroundColor = "green";
+      e.target.style.backgroundColor = "#60BF88";
       e.target.style.color = "white";
       e.target.style.backgroundImage = "url('check-24px.svg')"; // no-repeat 16px right';
 
       setIsAnswer(true);
     } else {
       e.target.style.backgroundColor = "#EA8282";
-      e.target.style.color = "white"; // wrongAnswer.current.style.backgroundColor = "#EA8282";
-      // wrongAnswer.current.style.color = "white";
-
+      e.target.style.color = "white";
+      rightAnswer.current.style.backgroundColor = "#60BF88";
+      rightAnswer.current.style.color = "white";
       setIsNext(true);
       setIsAnswer(false);
     }
@@ -34030,10 +34033,14 @@ function App() {
 
   function nextQuestion() {
     if (isAnswer) {
+      //got to the next question
       getRandomCountry();
       setIsNext(false);
       setScore(prevScore => prevScore + 1);
+      rightAnswer.current.style.backgroundColor = "transparent";
+      rightAnswer.current.style.color = "#6066D0";
     } else {
+      //display the result
       setIsResult(true);
     }
   }

@@ -27,7 +27,7 @@ h1 {
     background-color: #ffffff;
     padding: 3rem 1rem;
     border-radius: 10px;
-    max-width: 274px;
+    width: 274px;
     height: 330px;
     background-image: url('/undraw_adventure_4hum.134ba6b2.svg');
     background-position: 110% 0%;
@@ -55,6 +55,13 @@ h3 {
     color: #6066D0;
     border-radius: 5px;
     width: 100%;
+}
+
+.answers .rightAnswer {
+    background-image: url('/check-24px.12bb6615.svg');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 16px;
 }
 
 .answers button:hover {
@@ -97,6 +104,12 @@ h3 {
 
 h2 {
     color: #1D355D;
+}
+
+b {
+    color: #60BF88;
+    font-weight: 800;
+    font-size: larger;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

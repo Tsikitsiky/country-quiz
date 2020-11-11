@@ -9,7 +9,10 @@ function Quizz({
     handleClick, 
     rightAnswer, 
     wrongAnswer }) {
+    
+        //switch between two numbers to display flag question or capital question. if number ===0 flag, if 1 capital
     const number = Math.floor(Math.random() * 2);
+        
     console.log(number)
     return(
         <div className="container">
@@ -22,30 +25,30 @@ function Quizz({
             
             <div className="answers">
                     <button 
-                        key={randomAnswerOption[0]} 
                         value={randomAnswerOption[0]} 
                         onClick={handleClick}
+                        ref={randomAnswerOption[0] === randomCountry.name ? rightAnswer : null}
                     >
                             {randomAnswerOption[0]}
                     </button>
                     <button 
-                        key={randomAnswerOption[1]} 
                         value={randomAnswerOption[1]} 
                         onClick={handleClick}
+                        ref={randomAnswerOption[1] === randomCountry.name ? rightAnswer : null}
                     >
                             {randomAnswerOption[1]}
                     </button>
                     <button 
-                        key={randomAnswerOption[2]} 
                         value={randomAnswerOption[2]} 
                         onClick={handleClick}
+                        ref={randomAnswerOption[2] === randomCountry.name ? rightAnswer : null}
                     >
                             {randomAnswerOption[2]}
                     </button>
                     <button 
-                        key={randomAnswerOption[3]} 
                         value={randomAnswerOption[3]} 
                         onClick={handleClick}
+                        ref={randomAnswerOption[3] === randomCountry.name ? rightAnswer : null}
                     >
                             {randomAnswerOption[3]}
                     </button>
