@@ -1,21 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
 import Quizz from './pages/quizz';
 import Result from './pages/result';
 
 function App() {
-     const [countries, setCountries] = useState([]);
-     const [randomCountry, setRandomCountry] = useState({});
-     const [randomAnswerOption, setRandomAnswerOption] = useState([]);
+    const [countries, setCountries] = useState([]);
+    const [randomCountry, setRandomCountry] = useState({});
+    const [randomAnswerOption, setRandomAnswerOption] = useState([]);
+    const [score, setScore] = useState(0);
     const [IsNext, setIsNext] = useState(false);
     const [IsResult, setIsResult] = useState(false);
-    const [score, setScore] = useState(0);
-    const [isAnswer, setIsAnswer] = useState(false);
-    const rightAnswer = useRef(null);
-    const wrongAnswer = useRef(null);
+    const [isAnswerShown, setIsAnswerShown] = useState(false);
     const [IsStart, setIsStart] = useState(false);
+    const rightAnswer = useRef(null);
+    const [number, setNumber] = useState(0);
     
-
+    
     async function fetchCountries() {
         const res = await fetch('https://restcountries.eu/rest/v2/all');
         const country = await res.json();
@@ -51,27 +50,27 @@ function App() {
             setIsNext(true);
             e.target.style.backgroundColor = "#60BF88";
             e.target.style.color = "white";
-            e.target.style.backgroundImage = "url('check-24px.svg')";
-            // no-repeat 16px right';
-            setIsAnswer(true)
+            setIsAnswerShown(true)
         } else {
             e.target.style.backgroundColor = "#EA8282";
             e.target.style.color = "white";
             rightAnswer.current.style.backgroundColor = "#60BF88";
             rightAnswer.current.style.color = "white";
             setIsNext(true);
-            setIsAnswer(false);
+            setIsAnswerShown(false);
        }
     }
 
+    //after clicking the next btn check if we need to generate the next question or get the result if the answere was wrong
     function nextQuestion() {
-        if(isAnswer) {
+        if(isAnswerShown) {
             //got to the next question
             getRandomCountry();
             setIsNext(false)
             setScore(prevScore => prevScore + 1);
             rightAnswer.current.style.backgroundColor = "transparent";
             rightAnswer.current.style.color = "#6066D0";
+            setNumber(Math.floor(Math.random() * 2))
         } else {
             //display the result
             setIsResult(true);
@@ -99,7 +98,8 @@ function App() {
                         nextQuestion={nextQuestion}
                         handleClick={handleClick}
                         rightAnswer={rightAnswer}
-                        wrongAnswer={wrongAnswer} /> }
+                        number={number}
+                         /> }
                 </div>}
                     
         </>

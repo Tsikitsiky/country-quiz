@@ -33874,10 +33874,10 @@ function Quizz({
   nextQuestion,
   handleClick,
   rightAnswer,
-  wrongAnswer
+  number
 }) {
   //switch between two numbers to display flag question or capital question. if number ===0 flag, if 1 capital
-  const number = Math.floor(Math.random() * 2);
+  //const number = Math.floor(Math.random() * 2);
   console.log(number);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
@@ -33888,20 +33888,24 @@ function Quizz({
   }, /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[0],
     onClick: handleClick,
-    ref: randomAnswerOption[0] === randomCountry.name ? rightAnswer : null
-  }, randomAnswerOption[0]), /*#__PURE__*/_react.default.createElement("button", {
+    ref: randomAnswerOption[0] === randomCountry.name ? rightAnswer : null,
+    className: randomAnswerOption[0] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+  }, "A - ", randomAnswerOption[0]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[1],
     onClick: handleClick,
-    ref: randomAnswerOption[1] === randomCountry.name ? rightAnswer : null
-  }, randomAnswerOption[1]), /*#__PURE__*/_react.default.createElement("button", {
+    ref: randomAnswerOption[1] === randomCountry.name ? rightAnswer : null,
+    className: randomAnswerOption[1] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+  }, "B - ", randomAnswerOption[1]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[2],
     onClick: handleClick,
-    ref: randomAnswerOption[2] === randomCountry.name ? rightAnswer : null
-  }, randomAnswerOption[2]), /*#__PURE__*/_react.default.createElement("button", {
+    ref: randomAnswerOption[2] === randomCountry.name ? rightAnswer : null,
+    className: randomAnswerOption[2] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+  }, "C - ", randomAnswerOption[2]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[3],
     onClick: handleClick,
-    ref: randomAnswerOption[3] === randomCountry.name ? rightAnswer : null
-  }, randomAnswerOption[3])), IsNext && /*#__PURE__*/_react.default.createElement("button", {
+    ref: randomAnswerOption[3] === randomCountry.name ? rightAnswer : null,
+    className: randomAnswerOption[3] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+  }, "D - ", randomAnswerOption[3])), IsNext && /*#__PURE__*/_react.default.createElement("button", {
     className: "nextBtn",
     onClick: nextQuestion
   }, "Next"));
@@ -33956,8 +33960,6 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRouterDom = require("react-router-dom");
-
 var _quizz = _interopRequireDefault(require("./pages/quizz"));
 
 var _result = _interopRequireDefault(require("./pages/result"));
@@ -33972,13 +33974,13 @@ function App() {
   const [countries, setCountries] = (0, _react.useState)([]);
   const [randomCountry, setRandomCountry] = (0, _react.useState)({});
   const [randomAnswerOption, setRandomAnswerOption] = (0, _react.useState)([]);
+  const [score, setScore] = (0, _react.useState)(0);
   const [IsNext, setIsNext] = (0, _react.useState)(false);
   const [IsResult, setIsResult] = (0, _react.useState)(false);
-  const [score, setScore] = (0, _react.useState)(0);
-  const [isAnswer, setIsAnswer] = (0, _react.useState)(false);
-  const rightAnswer = (0, _react.useRef)(null);
-  const wrongAnswer = (0, _react.useRef)(null);
+  const [isAnswerShown, setIsAnswerShown] = (0, _react.useState)(false);
   const [IsStart, setIsStart] = (0, _react.useState)(false);
+  const rightAnswer = (0, _react.useRef)(null);
+  const [number, setNumber] = (0, _react.useState)(0);
 
   async function fetchCountries() {
     const res = await fetch('https://restcountries.eu/rest/v2/all');
@@ -34018,27 +34020,27 @@ function App() {
       setIsNext(true);
       e.target.style.backgroundColor = "#60BF88";
       e.target.style.color = "white";
-      e.target.style.backgroundImage = "url('check-24px.svg')"; // no-repeat 16px right';
-
-      setIsAnswer(true);
+      setIsAnswerShown(true);
     } else {
       e.target.style.backgroundColor = "#EA8282";
       e.target.style.color = "white";
       rightAnswer.current.style.backgroundColor = "#60BF88";
       rightAnswer.current.style.color = "white";
       setIsNext(true);
-      setIsAnswer(false);
+      setIsAnswerShown(false);
     }
-  }
+  } //after clicking the next btn check if we need to generate the next question or get the result if the answere was wrong
+
 
   function nextQuestion() {
-    if (isAnswer) {
+    if (isAnswerShown) {
       //got to the next question
       getRandomCountry();
       setIsNext(false);
       setScore(prevScore => prevScore + 1);
       rightAnswer.current.style.backgroundColor = "transparent";
       rightAnswer.current.style.color = "#6066D0";
+      setNumber(Math.floor(Math.random() * 2));
     } else {
       //display the result
       setIsResult(true);
@@ -34063,13 +34065,13 @@ function App() {
     nextQuestion: nextQuestion,
     handleClick: handleClick,
     rightAnswer: rightAnswer,
-    wrongAnswer: wrongAnswer
+    number: number
   })));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./pages/quizz":"pages/quizz.js","./pages/result":"pages/result.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./pages/quizz":"pages/quizz.js","./pages/result":"pages/result.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34111,7 +34113,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63995" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50693" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

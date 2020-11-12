@@ -7,11 +7,11 @@ function Quizz({
     IsNext, 
     nextQuestion, 
     handleClick, 
-    rightAnswer, 
-    wrongAnswer }) {
+    rightAnswer,
+    number }) {
     
         //switch between two numbers to display flag question or capital question. if number ===0 flag, if 1 capital
-    const number = Math.floor(Math.random() * 2);
+        //const number = Math.floor(Math.random() * 2);
         
     console.log(number)
     return(
@@ -28,29 +28,33 @@ function Quizz({
                         value={randomAnswerOption[0]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[0] === randomCountry.name ? rightAnswer : null}
+                        className={randomAnswerOption[0] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                            {randomAnswerOption[0]}
+                           A - {randomAnswerOption[0]}
                     </button>
                     <button 
                         value={randomAnswerOption[1]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[1] === randomCountry.name ? rightAnswer : null}
+                        className={randomAnswerOption[1] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                            {randomAnswerOption[1]}
+                           B - {randomAnswerOption[1]}
                     </button>
                     <button 
                         value={randomAnswerOption[2]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[2] === randomCountry.name ? rightAnswer : null}
+                        className={randomAnswerOption[2] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                            {randomAnswerOption[2]}
+                           C - {randomAnswerOption[2]}
                     </button>
                     <button 
                         value={randomAnswerOption[3]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[3] === randomCountry.name ? rightAnswer : null}
+                        className={randomAnswerOption[3] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                            {randomAnswerOption[3]}
+                           D - {randomAnswerOption[3]}
                     </button>
                     
             </div>
