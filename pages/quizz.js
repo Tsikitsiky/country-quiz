@@ -16,12 +16,14 @@ function Quizz({
     console.log(number)
     return(
         <div className="container">
-            {number === 0 ? 
+            {/* type of question to ask */}
+            {number === 0 && 
                 <header>
                     <img src={randomCountry.flag}/>
                     <h3>Which country does this flag belong to?</h3>
-                </header> 
-                : <h3>{randomCountry.capital} is the the capital of </h3> }
+                </header>} 
+            {number === 1 && <h3>{randomCountry.capital} is the the capital of </h3> }
+            {number === 2 && <h3>{randomCountry.demonym} are people from </h3>} 
             
             <div className="answers">
                     <button 

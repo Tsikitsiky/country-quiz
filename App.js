@@ -44,8 +44,6 @@ function App() {
 
     //check whether the answer is right or wrong and change the background color
     function handleClick(e) {
-        console.log(e.target.value)
-        console.log(randomCountry.name)
         if(e.target.value === randomCountry.name) {
             setIsNext(true);
             e.target.style.backgroundColor = "#60BF88";
@@ -70,7 +68,8 @@ function App() {
             setScore(prevScore => prevScore + 1);
             rightAnswer.current.style.backgroundColor = "transparent";
             rightAnswer.current.style.color = "#6066D0";
-            setNumber(Math.floor(Math.random() * 2))
+            //get the next question by type
+            setNumber(Math.floor(Math.random() * 3))
         } else {
             //display the result
             setIsResult(true);

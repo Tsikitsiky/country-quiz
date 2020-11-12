@@ -33881,9 +33881,9 @@ function Quizz({
   console.log(number);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, number === 0 ? /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("img", {
+  }, number === 0 && /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("img", {
     src: randomCountry.flag
-  }), /*#__PURE__*/_react.default.createElement("h3", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h3", null, randomCountry.capital, " is the the capital of "), /*#__PURE__*/_react.default.createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("h3", null, "Which country does this flag belong to?")), number === 1 && /*#__PURE__*/_react.default.createElement("h3", null, randomCountry.capital, " is the the capital of "), number === 2 && /*#__PURE__*/_react.default.createElement("h3", null, randomCountry.demonym, " are people from "), /*#__PURE__*/_react.default.createElement("div", {
     className: "answers"
   }, /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[0],
@@ -34013,9 +34013,6 @@ function App() {
 
 
   function handleClick(e) {
-    console.log(e.target.value);
-    console.log(randomCountry.name);
-
     if (e.target.value === randomCountry.name) {
       setIsNext(true);
       e.target.style.backgroundColor = "#60BF88";
@@ -34039,8 +34036,9 @@ function App() {
       setIsNext(false);
       setScore(prevScore => prevScore + 1);
       rightAnswer.current.style.backgroundColor = "transparent";
-      rightAnswer.current.style.color = "#6066D0";
-      setNumber(Math.floor(Math.random() * 2));
+      rightAnswer.current.style.color = "#6066D0"; //get the next question by type
+
+      setNumber(Math.floor(Math.random() * 3));
     } else {
       //display the result
       setIsResult(true);

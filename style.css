@@ -71,14 +71,14 @@ h3 {
 
 .answers .rightAnswer {
     background-image: url('/check-24px.svg');
-    background-position: 90% center;
+    background-position: 95% center;
     background-repeat: no-repeat;
     background-size: 16px;
 }
 
 .answers .wrongAnswer {
     background-image: url('/cancel-24px.svg');
-    background-position: 90% center;
+    background-position: 95% center;
     background-repeat: no-repeat;
     background-size: 16px;
 }
