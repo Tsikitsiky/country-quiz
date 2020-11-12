@@ -32,14 +32,14 @@ function App() {
             return
         }
         const random = countries[Math.floor(Math.random() * countries.length)];
-        const randomOpt1 = countries[Math.floor(Math.random() * countries.length)];
-        const randomOpt2 = countries[Math.floor(Math.random() * countries.length)];
-        const randomOpt3 = countries[Math.floor(Math.random() * countries.length)];
-        const randomOptions = [random.name, randomOpt1.name, randomOpt2.name, randomOpt3.name];
-        randomOptions.sort(() => { return 0.5 - Math.random() });
+        const answerOption1 = countries[Math.floor(Math.random() * countries.length)];
+        const answerOption2 = countries[Math.floor(Math.random() * countries.length)];
+        const answerOption3 = countries[Math.floor(Math.random() * countries.length)];
+        const answerOptions = [random.name, answerOption1.name, answerOption2.name, answerOption3.name];
+        answerOptions.sort(() => { return 0.5 - Math.random() });
         
         setRandomCountry(random);
-        setRandomAnswerOption(randomOptions)
+        setRandomAnswerOption(answerOptions)
     }
 
     //check whether the answer is right or wrong and change the background color
