@@ -83,6 +83,10 @@ h3 {
     background-size: 16px;
 }
 
+p {
+    color: #1D355D;
+}
+
 /* .answers button:hover {
     background-color: #F9A826;
     color: #ffffff;
@@ -107,6 +111,9 @@ h3 {
     padding: 0.5rem 1rem;
     border: 1px solid #1D355D;
     border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
 }
 
 .result {
@@ -124,6 +131,8 @@ h3 {
 
 h2 {
     color: #1D355D;
+    font-size: 38px;
+    line-height: 62px;  
 }
 
 b {

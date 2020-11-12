@@ -9,11 +9,7 @@ function Quizz({
     handleClick, 
     rightAnswer,
     number }) {
-    
-        //switch between two numbers to display flag question or capital question. if number ===0 flag, if 1 capital
-        //const number = Math.floor(Math.random() * 2);
         
-    console.log(number)
     return(
         <div className="container">
             {/* type of question to ask */}

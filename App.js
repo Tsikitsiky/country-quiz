@@ -11,8 +11,8 @@ function App() {
     const [IsResult, setIsResult] = useState(false);
     const [isAnswerShown, setIsAnswerShown] = useState(false);
     const [IsStart, setIsStart] = useState(false);
-    const rightAnswer = useRef(null);
     const [number, setNumber] = useState(0);
+    const rightAnswer = useRef(null);
     
     
     async function fetchCountries() {

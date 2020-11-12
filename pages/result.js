@@ -10,7 +10,7 @@ function Result({score, setIsResult,getRandomCountry, setScore, setIsNext}) {
     }
     return(
         <div className="container result">
-                <h2>Result</h2>
+                <h2>Results</h2>
                 <p>You got <b>{score}</b> correct answers</p>
                 <button className="tryAgainBtn" onClick={handleClickBtn}>Try again</button>
                 </div>

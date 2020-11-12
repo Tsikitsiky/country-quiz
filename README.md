@@ -1,48 +1,14 @@
-# Country Quiz
-
-Challenge: Create a country quiz app using an API, and use React to handle the frontend. Don’t look at the existing solution. Fulfill user stories below:
-
-![image](./assets/quiz1.png)
-![image](./assets/quiz2.png)
-![image](./assets/quiz3.png)
-![image](./assets/quiz4.png)
-
--   User story: I can see at least 2 types of question: a city is the capital of.. or a flag belong to country..
--   User story: I can see select an answer
--   User story: I can see if my answer is correct or incorrect
--   User story: When I answer correctly, I can move on to the next question
--   User story: When I answer incorrectly, I can see my results and try again
--   User story: I can try again
-
-**Icon**: https://google.github.io/material-design-icons/
-
-**API**: https://restcountries.eu/. Use data from the API to create questions and answers.
-
-**Design** : https://www.figma.com/file/Gw0ZNBbYN8asqFlZWy3jG1
-
-**Live app** : https://country-quiz-app.netlify.app/
-
-As long as you fulfill all the user stories, you can give your personal touches by adding transition, using your own images, changing colors, or even creating your own layout,...
-
-Once you completed, submit your solutions by providing URLs for both GitHub repository and live app on Netlify and explain briefly what you have done.
-
-For the custom domain url you'll enter in netlify, please use the following naming convention : **country-quiz-_YOUR_FIRSTNAME_.netlify.app** (replace YOUR_FIRSTNAME by your firstname)
-
-Good luck everybody!
-
-Template for your readme :
-
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">Country Quiz</h1>
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://country-quiz-sarah.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/Tsikitsiky/country-quiz">
       Solution
     </a>
   </h3>
@@ -63,14 +29,19 @@ Template for your readme :
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![first](/assets/first.png)
+![second](/assets/second.png)
+![third](/assets/third.png)
+![fourth](/assets/fourth.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+-   The demo can be seen on <a href="https://country-quiz-sarah.netlify.app/">Demo</a>
 
--   Where can I see your demo?
--   What was your experience?
--   What have you learned/improved?
--   Your wisdom? :)
+-   There are 3 types of question: a city is the capital of.., a flag belong to country.., and people are from...
+-   Users can select an answer
+-   Users can see if the answer is correct or incorrect
+-   When the answer is correct, users can move on to the next question
+-   When the answer is incorrect, users can see my results and try again
+-   Users can try again and again
 
 ### Built With
 
@@ -106,5 +77,5 @@ $ npm start
 ## Contact
 
 -   Website [your-website.com](https://{your-web-site-link})
--   GitHub [@your-username](https://{github.com/your-usermame})
+-   GitHub [@Tsikitsiky](https://{github.com/Tsikitsiky})
 -   Twitter [@your-twitter](https://{twitter.com/your-username})

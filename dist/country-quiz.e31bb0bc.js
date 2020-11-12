@@ -33876,9 +33876,6 @@ function Quizz({
   rightAnswer,
   number
 }) {
-  //switch between two numbers to display flag question or capital question. if number ===0 flag, if 1 capital
-  //const number = Math.floor(Math.random() * 2);
-  console.log(number);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, number === 0 && /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("img", {
@@ -33942,7 +33939,7 @@ function Result({
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container result"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Result"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("b", null, score), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("b", null, score), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
     className: "tryAgainBtn",
     onClick: handleClickBtn
   }, "Try again"));
@@ -33979,8 +33976,8 @@ function App() {
   const [IsResult, setIsResult] = (0, _react.useState)(false);
   const [isAnswerShown, setIsAnswerShown] = (0, _react.useState)(false);
   const [IsStart, setIsStart] = (0, _react.useState)(false);
-  const rightAnswer = (0, _react.useRef)(null);
   const [number, setNumber] = (0, _react.useState)(0);
+  const rightAnswer = (0, _react.useRef)(null);
 
   async function fetchCountries() {
     const res = await fetch('https://restcountries.eu/rest/v2/all');
