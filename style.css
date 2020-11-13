@@ -82,6 +82,7 @@ h3 {
     color: #6066D0;
     border-radius: 5px;
     width: 100%;
+    cursor: pointer;
 }
 
 .answers button:first-of-type::before {
