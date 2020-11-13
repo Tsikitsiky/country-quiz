@@ -69,6 +69,38 @@ h3 {
     width: 100%;
 }
 
+.answers button:first-of-type::before {
+    content: 'A';
+    width: 2rem;
+    height: 2rem;
+    left: 15px;
+    position: absolute;
+}
+
+.answers button:nth-of-type(2)::before {
+    content: 'B';
+    width: 2rem;
+    height: 2rem;
+    left: 15px;
+    position: absolute;
+}
+
+.answers button:nth-of-type(3)::before {
+    content: 'C';
+    width: 2rem;
+    height: 2rem;
+    left: 15px;
+    position: absolute;
+}
+
+.answers button:nth-of-type(4)::before {
+    content: 'D';
+    width: 2rem;
+    height: 2rem;
+    left: 15px;
+    position: absolute;
+}
+
 .answers .rightAnswer {
     background-image: url('/check-24px.svg');
     background-position: 95% center;

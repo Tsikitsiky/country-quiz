@@ -33887,22 +33887,22 @@ function Quizz({
     onClick: handleClick,
     ref: randomAnswerOption[0] === randomCountry.name ? rightAnswer : null,
     className: randomAnswerOption[0] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
-  }, "A - ", randomAnswerOption[0]), /*#__PURE__*/_react.default.createElement("button", {
+  }, randomAnswerOption[0]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[1],
     onClick: handleClick,
     ref: randomAnswerOption[1] === randomCountry.name ? rightAnswer : null,
     className: randomAnswerOption[1] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
-  }, "B - ", randomAnswerOption[1]), /*#__PURE__*/_react.default.createElement("button", {
+  }, randomAnswerOption[1]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[2],
     onClick: handleClick,
     ref: randomAnswerOption[2] === randomCountry.name ? rightAnswer : null,
     className: randomAnswerOption[2] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
-  }, "C - ", randomAnswerOption[2]), /*#__PURE__*/_react.default.createElement("button", {
+  }, randomAnswerOption[2]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[3],
     onClick: handleClick,
     ref: randomAnswerOption[3] === randomCountry.name ? rightAnswer : null,
     className: randomAnswerOption[3] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
-  }, "D - ", randomAnswerOption[3])), IsNext && /*#__PURE__*/_react.default.createElement("button", {
+  }, randomAnswerOption[3])), IsNext && /*#__PURE__*/_react.default.createElement("button", {
     className: "nextBtn",
     onClick: nextQuestion
   }, "Next"));
@@ -34108,7 +34108,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50693" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53808" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

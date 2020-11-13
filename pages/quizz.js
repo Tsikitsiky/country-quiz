@@ -28,7 +28,7 @@ function Quizz({
                         ref={randomAnswerOption[0] === randomCountry.name ? rightAnswer : null}
                         className={randomAnswerOption[0] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                           A - {randomAnswerOption[0]}
+                         {randomAnswerOption[0]}
                     </button>
                     <button 
                         value={randomAnswerOption[1]} 
@@ -36,7 +36,7 @@ function Quizz({
                         ref={randomAnswerOption[1] === randomCountry.name ? rightAnswer : null}
                         className={randomAnswerOption[1] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                           B - {randomAnswerOption[1]}
+                         {randomAnswerOption[1]}
                     </button>
                     <button 
                         value={randomAnswerOption[2]} 
@@ -44,7 +44,7 @@ function Quizz({
                         ref={randomAnswerOption[2] === randomCountry.name ? rightAnswer : null}
                         className={randomAnswerOption[2] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                           C - {randomAnswerOption[2]}
+                           {randomAnswerOption[2]}
                     </button>
                     <button 
                         value={randomAnswerOption[3]} 
@@ -52,7 +52,7 @@ function Quizz({
                         ref={randomAnswerOption[3] === randomCountry.name ? rightAnswer : null}
                         className={randomAnswerOption[3] === randomCountry.name ? "rightAnswer" : "wrongAnswer"}
                     >
-                           D - {randomAnswerOption[3]}
+                           {randomAnswerOption[3]}
                     </button>
                     
             </div>
