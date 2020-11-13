@@ -34027,6 +34027,8 @@ function App() {
 
 
   function nextQuestion() {
+    setNumber(Math.floor(Math.random() * 3));
+
     if (isAnswerShown) {
       //got to the next question
       getRandomCountry();
@@ -34034,8 +34036,7 @@ function App() {
       setScore(prevScore => prevScore + 1);
       rightAnswer.current.style.backgroundColor = "transparent";
       rightAnswer.current.style.color = "#6066D0"; //get the next question by type
-
-      setNumber(Math.floor(Math.random() * 3));
+      // setNumber(Math.floor(Math.random() * 3))
     } else {
       //display the result
       setIsResult(true);

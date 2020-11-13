@@ -61,6 +61,7 @@ function App() {
 
     //after clicking the next btn check if we need to generate the next question or get the result if the answere was wrong
     function nextQuestion() {
+        setNumber(Math.floor(Math.random() * 3))
         if(isAnswerShown) {
             //got to the next question
             getRandomCountry();
@@ -69,7 +70,7 @@ function App() {
             rightAnswer.current.style.backgroundColor = "transparent";
             rightAnswer.current.style.color = "#6066D0";
             //get the next question by type
-            setNumber(Math.floor(Math.random() * 3))
+            // setNumber(Math.floor(Math.random() * 3))
         } else {
             //display the result
             setIsResult(true);
