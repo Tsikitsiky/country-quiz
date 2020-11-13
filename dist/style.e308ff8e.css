@@ -31,22 +31,37 @@ h1 {
     background-color: #ffffff;
     padding: 3rem 1rem;
     border-radius: 10px;
-    width: 274px;
+    width: 374px;
     height: 330px;
-    background-image: url('/undraw_adventure_4hum.134ba6b2.svg');
-    background-position: 110% 0%;
-    background-repeat: no-repeat;
-    background-size: 100px 60px;
     position: absolute;
     top: 65%;
     left: auto;
     display: flex;
     flex-direction: column;
 }
-@media(max-width: 350px) {
+
+.container::before {
+    content: '';
+    width: 120px;
+    height: 80px;
+    position: absolute;
+    top: -10%;
+    left: 70%;
+    background-image: url('/undraw_adventure_4hum.134ba6b2.svg');
+    background-position: right 100%;
+    background-repeat: no-repeat;
+    background-size: 120px 80px;
+}
+
+@media(max-width: 550px) {
     .container {
         left: 2%;
         max-width: 224px;
+    }
+
+    .container::before {
+        left: 55%;
+       background-size: 100px 60px;
     }
 }
 
@@ -61,7 +76,7 @@ h3 {
 }
 
 .answers button {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     background-color: transparent;
     border: 1px solid #6066D0;
     color: #6066D0;
