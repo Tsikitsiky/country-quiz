@@ -34010,6 +34010,8 @@ function App() {
 
 
   function handleClick(e) {
+    console.log(e.target.value + " - " + randomCountry.name);
+
     if (e.target.value === randomCountry.name) {
       setIsNext(true);
       e.target.style.backgroundColor = "#60BF88";

@@ -44,6 +44,7 @@ function App() {
 
     //check whether the answer is right or wrong and change the background color
     function handleClick(e) {
+        console.log(e.target.value + " - " + randomCountry.name )
         if(e.target.value === randomCountry.name) {
             setIsNext(true);
             e.target.style.backgroundColor = "#60BF88";
