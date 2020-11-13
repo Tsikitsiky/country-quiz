@@ -176,6 +176,11 @@ p {
     align-items: center;
 }
 
+.result::before {
+    content: '';
+    background-image: none;
+}
+
 h2 {
     color: #1D355D;
     font-size: 38px;
