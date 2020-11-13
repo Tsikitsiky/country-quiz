@@ -163,6 +163,12 @@ p {
     line-height: 27px;
 }
 
+.tryAgainBtn:hover {
+    background-color: #F9A826;
+    color: #ffffff;
+    border: #ffffff;
+}
+
 .result {
     background-image: url('/undraw_winners_ao2o.svg');
     background-position: center 15%;
