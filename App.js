@@ -80,7 +80,7 @@ function App() {
     }
 
     return(
-        <>
+        <div className="app-container">
             <h1>Country Quizz</h1>
             <button onClick={getRandomCountry} className="startBtn" >Start Game</button>
             {IsStart && <div>
@@ -103,7 +103,7 @@ function App() {
                          /> }
                 </div>}
                     
-        </>
+        </div>
     )
 }
 
