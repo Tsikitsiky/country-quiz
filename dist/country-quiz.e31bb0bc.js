@@ -34047,7 +34047,7 @@ function App() {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "app-container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quizz"), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("button", {
     onClick: getRandomCountry,
     className: "startBtn"
   }, "Start Game"), IsStart && /*#__PURE__*/_react.default.createElement("div", null, IsResult ? /*#__PURE__*/_react.default.createElement(_result.default, {
@@ -34113,7 +34113,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58691" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50169" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
