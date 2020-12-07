@@ -81,7 +81,7 @@ function App() {
 
     return(
         <div className="app-container">
-            <h1>Country Quizz</h1>
+            <h1>Country Quiz</h1>
             <button onClick={getRandomCountry} className="startBtn" >Start Game</button>
             {IsStart && <div>
                 {IsResult ? <Result 
