@@ -49,12 +49,15 @@ function App() {
             setIsNext(true);
             e.target.style.backgroundColor = "#60BF88";
             e.target.style.color = "white";
+            e.target.style.borderColor = "#60BF88";
             setIsAnswerShown(true)
         } else {
             e.target.style.backgroundColor = "#EA8282";
             e.target.style.color = "white";
+            e.target.style.borderColor = "#EA8282";
             rightAnswer.current.style.backgroundColor = "#60BF88";
             rightAnswer.current.style.color = "white";
+            rightAnswer.current.style.borderColor = "#60BF88";
             setIsNext(true);
             setIsAnswerShown(false);
        }
@@ -82,8 +85,8 @@ function App() {
     return(
         <div className="app-container">
             <h1>Country Quiz</h1>
-            <button onClick={getRandomCountry} className="startBtn" >Start Game</button>
-            {IsStart && <div>
+            
+            {IsStart ? <div>
                 {IsResult ? <Result 
                         score={score} 
                         setIsResult={setIsResult} 
@@ -101,7 +104,9 @@ function App() {
                         rightAnswer={rightAnswer}
                         number={number}
                          /> }
-                </div>}
+                </div> 
+                : 
+                <button onClick={getRandomCountry} className="startBtn" >Start Game</button>}
                     
         </div>
     )

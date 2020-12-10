@@ -34016,12 +34016,15 @@ function App() {
       setIsNext(true);
       e.target.style.backgroundColor = "#60BF88";
       e.target.style.color = "white";
+      e.target.style.borderColor = "#60BF88";
       setIsAnswerShown(true);
     } else {
       e.target.style.backgroundColor = "#EA8282";
       e.target.style.color = "white";
+      e.target.style.borderColor = "#EA8282";
       rightAnswer.current.style.backgroundColor = "#60BF88";
       rightAnswer.current.style.color = "white";
+      rightAnswer.current.style.borderColor = "#60BF88";
       setIsNext(true);
       setIsAnswerShown(false);
     }
@@ -34047,10 +34050,7 @@ function App() {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "app-container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: getRandomCountry,
-    className: "startBtn"
-  }, "Start Game"), IsStart && /*#__PURE__*/_react.default.createElement("div", null, IsResult ? /*#__PURE__*/_react.default.createElement(_result.default, {
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), IsStart ? /*#__PURE__*/_react.default.createElement("div", null, IsResult ? /*#__PURE__*/_react.default.createElement(_result.default, {
     score: score,
     setIsResult: setIsResult,
     randomCountry: randomCountry,
@@ -34066,7 +34066,10 @@ function App() {
     handleClick: handleClick,
     rightAnswer: rightAnswer,
     number: number
-  })));
+  })) : /*#__PURE__*/_react.default.createElement("button", {
+    onClick: getRandomCountry,
+    className: "startBtn"
+  }, "Start Game"));
 }
 
 var _default = App;
@@ -34113,7 +34116,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50169" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50340" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
