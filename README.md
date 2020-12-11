@@ -20,10 +20,8 @@
 
 -   [Overview](#overview)
     -   [Built With](#built-with)
--   [Features](#features)
 -   [How to use](#how-to-use)
 -   [Contact](#contact)
--   [Acknowledgements](#acknowledgements)
 
 <!-- OVERVIEW -->
 
@@ -49,9 +47,6 @@
 
 -   [React](https://reactjs.org/)
 
-## Features
-
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
 ## How To Use
 
@@ -61,7 +56,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/Tsikitsiky/country-quiz
 
 # Install dependencies
 $ npm install
@@ -70,12 +65,6 @@ $ npm install
 $ npm start
 ```
 
-## Acknowledgements
-
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
-
 ## Contact
 
--   Website [your-website.com](https://{your-web-site-link})
 -   GitHub [@Tsikitsiky](https://{github.com/Tsikitsiky})
--   Twitter [@your-twitter](https://{twitter.com/your-username})
