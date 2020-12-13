@@ -1,36 +1,6 @@
-<!-- Please update value in the {}  -->
-
-<h1 align="center">Country Quiz</h1>
-
-<div align="center">
-  <h3>
-    <a href="https://country-quiz-sarah.netlify.app/">
-      Demo
-    </a>
-    <span> | </span>
-    <a href="https://github.com/Tsikitsiky/country-quiz">
-      Solution
-    </a>
-  </h3>
-</div>
-
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
-
--   [Overview](#overview)
-    -   [Built With](#built-with)
--   [How to use](#how-to-use)
--   [Contact](#contact)
-
-<!-- OVERVIEW -->
+# Country Quiz
 
 ## Overview
-
-![first](/assets/first.png)
-![second](/assets/second.png)
-![third](/assets/third.png)
-![fourth](/assets/fourth.png)
 
 -   The demo can be seen on <a href="https://country-quiz-sarah.netlify.app/">Demo</a>
 
@@ -42,8 +12,6 @@
 -   Users can try again and again
 
 ### Built With
-
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 -   [React](https://reactjs.org/)
 
@@ -65,6 +33,6 @@ $ npm install
 $ npm start
 ```
 
-## Contact
+### Live app
 
--   GitHub [@Tsikitsiky](https://{github.com/Tsikitsiky})
+[https://country-quiz-sarah.netlify.app/](https://country-quiz-sarah.netlify.app/)
