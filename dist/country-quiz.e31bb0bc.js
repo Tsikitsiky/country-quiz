@@ -33978,6 +33978,7 @@ function App() {
   const [IsStart, setIsStart] = (0, _react.useState)(false);
   const [number, setNumber] = (0, _react.useState)(0);
   const rightAnswer = (0, _react.useRef)(null);
+  const title = (0, _react.useRef)(null);
 
   async function fetchCountries() {
     const res = await fetch('https://restcountries.eu/rest/v2/all');
@@ -33991,6 +33992,7 @@ function App() {
 
   function getRandomCountry() {
     setIsStart(true);
+    title.current.style.alignSelf = "start";
 
     if (!countries.length) {
       return;
@@ -34051,7 +34053,9 @@ function App() {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "app-container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), IsStart ? /*#__PURE__*/_react.default.createElement("div", null, IsResult ? /*#__PURE__*/_react.default.createElement(_result.default, {
+  }, /*#__PURE__*/_react.default.createElement("h1", {
+    ref: title
+  }, "Country Quiz"), IsStart ? /*#__PURE__*/_react.default.createElement("div", null, IsResult ? /*#__PURE__*/_react.default.createElement(_result.default, {
     score: score,
     setIsResult: setIsResult,
     randomCountry: randomCountry,

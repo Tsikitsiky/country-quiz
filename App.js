@@ -13,6 +13,7 @@ function App() {
     const [IsStart, setIsStart] = useState(false);
     const [number, setNumber] = useState(0);
     const rightAnswer = useRef(null);
+    const title = useRef(null);
     
     
     async function fetchCountries() {
@@ -28,6 +29,7 @@ function App() {
     //get the country that we are going to use
     function getRandomCountry() {
         setIsStart(true);
+        title.current.style.alignSelf = "start";
         if(!countries.length) {
             return
         }
@@ -85,7 +87,7 @@ function App() {
 
     return(
         <div className="app-container">
-            <h1>Country Quiz</h1>
+            <h1 ref={title}>Country Quiz</h1>
             
             {IsStart ? <div>
                 {IsResult ? <Result 
