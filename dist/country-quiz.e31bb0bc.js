@@ -34040,7 +34040,8 @@ function App() {
       setIsNext(false);
       setScore(prevScore => prevScore + 1);
       rightAnswer.current.style.backgroundColor = "transparent";
-      rightAnswer.current.style.color = "#6066D0"; //get the next question by type
+      rightAnswer.current.style.color = "#6066D0";
+      rightAnswer.current.style.borderColor = "#6066D0"; //get the next question by type
       // setNumber(Math.floor(Math.random() * 3))
     } else {
       //display the result
@@ -34069,7 +34070,7 @@ function App() {
   })) : /*#__PURE__*/_react.default.createElement("button", {
     onClick: getRandomCountry,
     className: "startBtn"
-  }, "Start Game"));
+  }, "Start"));
 }
 
 var _default = App;
@@ -34116,7 +34117,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50340" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62135" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

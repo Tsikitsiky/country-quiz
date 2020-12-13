@@ -73,6 +73,7 @@ function App() {
             setScore(prevScore => prevScore + 1);
             rightAnswer.current.style.backgroundColor = "transparent";
             rightAnswer.current.style.color = "#6066D0";
+            rightAnswer.current.style.borderColor = "#6066D0";
             //get the next question by type
             // setNumber(Math.floor(Math.random() * 3))
         } else {
@@ -106,7 +107,7 @@ function App() {
                          /> }
                 </div> 
                 : 
-                <button onClick={getRandomCountry} className="startBtn" >Start Game</button>}
+                <button onClick={getRandomCountry} className="startBtn" >Start</button>}
                     
         </div>
     )

@@ -39,7 +39,7 @@ body {
     background-image: url('background.png');
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100vh;
     font-family: 'Poppins', sans-serif;
     position: relative;
 }
@@ -55,8 +55,9 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     max-width: 464px;
-    margin: 0 auto;
+    margin: 10% auto;
 }
 
 h1 {
@@ -71,12 +72,16 @@ h1 {
 }
 
 .startBtn {
-    border-radius: 5px;
+    border-radius: 12px;
     border: none;
-    padding: 0.5rem;
-    width: 100px;
+    color: #1D355D;
+    padding: 1rem 2rem;
     margin: auto;
     margin-left: 90px;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
 }
 
 .container {
@@ -100,7 +105,7 @@ h1 {
     background-image: url('undraw_adventure_4hum.svg');
     background-position: right 100%;
     background-repeat: no-repeat;
-    background-size: 150px 90px;
+    background-size: 150px 100px;
 }
 
 @media(max-width: 550px) {
@@ -220,7 +225,7 @@ p {
     background-color: transparent;
     color: #1D355D;
     padding: 18px 60px;
-    border: 1px solid #1D355D;
+    border: 2px solid #1D355D;
     border-radius: 5px;
     font-weight: 600;
     font-size: 18px;
