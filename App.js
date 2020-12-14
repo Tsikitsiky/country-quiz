@@ -110,7 +110,7 @@ function App() {
                 </div> 
                 : 
                 <button onClick={getRandomCountry} className="startBtn" >Start</button>}
-                    
+                <p className="footer">Sarah @ DevChallenges.io</p>
         </div>
     )
 }

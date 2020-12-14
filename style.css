@@ -39,9 +39,10 @@ body {
     background-image: url('background.png');
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-size: 100% 100vh;
+    background-size: 100% 100%;
     font-family: 'Poppins', sans-serif;
     position: relative;
+    height: 1090px;
 }
 
 img {
@@ -55,9 +56,9 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     max-width: 464px;
-    margin: 10% auto;
+    margin: auto;
+    margin-top: 17%;
 }
 
 h1 {
@@ -77,12 +78,20 @@ h1 {
     color: #1D355D;
     padding: 1rem 2rem;
     margin: auto;
-    /* margin-left: 90px; */
     align-self: center;
     background-color: #ffffff;
     font-size: 18px;
     font-weight: 600;
     line-height: 27px;
+}
+
+.footer {
+    color: #f2f2f2;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    position: absolute;
+    top: 93%;
 }
 
 .container {
@@ -102,7 +111,7 @@ h1 {
     height: 100px;
     position: absolute;
     top: -10%;
-    left: 70%;
+    left: 69%;
     background-image: url('undraw_adventure_4hum.svg');
     background-position: right 100%;
     background-repeat: no-repeat;
@@ -122,9 +131,7 @@ h1 {
     h1 {
         align-self: center;
     }
-    .startBtn {
-        margin-left: 170px;
-    }
+    
 }
 
 h3 {
@@ -201,6 +208,14 @@ h3 {
     background-repeat: no-repeat;
     background-size: 20px;
 }
+
+.answers button:hover {
+    background-image: none;
+    background-color: #F9A826;
+    border-color: #F9A826;
+    color: #ffffff;
+}
+
 
 p {
     color: #1D355D;
