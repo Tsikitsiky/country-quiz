@@ -33885,23 +33885,19 @@ function Quizz({
   }, /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[0],
     onClick: handleClick,
-    ref: randomAnswerOption[0] === randomCountry.name ? rightAnswer : null,
-    className: randomAnswerOption[0] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+    ref: randomAnswerOption[0] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[0]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[1],
     onClick: handleClick,
-    ref: randomAnswerOption[1] === randomCountry.name ? rightAnswer : null,
-    className: randomAnswerOption[1] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+    ref: randomAnswerOption[1] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[1]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[2],
     onClick: handleClick,
-    ref: randomAnswerOption[2] === randomCountry.name ? rightAnswer : null,
-    className: randomAnswerOption[2] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+    ref: randomAnswerOption[2] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[2]), /*#__PURE__*/_react.default.createElement("button", {
     value: randomAnswerOption[3],
     onClick: handleClick,
-    ref: randomAnswerOption[3] === randomCountry.name ? rightAnswer : null,
-    className: randomAnswerOption[3] === randomCountry.name ? "rightAnswer" : "wrongAnswer"
+    ref: randomAnswerOption[3] === randomCountry.name ? rightAnswer : null
   }, randomAnswerOption[3])), IsNext && /*#__PURE__*/_react.default.createElement("button", {
     className: "nextBtn",
     onClick: nextQuestion
@@ -33947,7 +33943,11 @@ function Result({
 
 var _default = Result;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"check-24px.svg":[function(require,module,exports) {
+module.exports = "/check-24px.12bb6615.svg";
+},{}],"cancel-24px.svg":[function(require,module,exports) {
+module.exports = "/cancel-24px.55ee8e85.svg";
+},{}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33960,6 +33960,10 @@ var _react = _interopRequireWildcard(require("react"));
 var _quizz = _interopRequireDefault(require("./pages/quizz"));
 
 var _result = _interopRequireDefault(require("./pages/result"));
+
+var _check24px = _interopRequireDefault(require("./check-24px.svg"));
+
+var _cancel24px = _interopRequireDefault(require("./cancel-24px.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34019,14 +34023,26 @@ function App() {
       e.target.style.backgroundColor = "#60BF88";
       e.target.style.color = "white";
       e.target.style.borderColor = "#60BF88";
+      e.target.style.backgroundImage = `url(${_check24px.default})`;
+      e.target.style.backgroundRepeat = "no-repeat";
+      e.target.style.backgroundSize = "20px 20px";
+      e.target.style.backgroundPosition = "95% center";
       setIsAnswerShown(true);
     } else {
       e.target.style.backgroundColor = "#EA8282";
       e.target.style.color = "white";
       e.target.style.borderColor = "#EA8282";
+      e.target.style.backgroundImage = `url(${_cancel24px.default})`;
+      e.target.style.backgroundRepeat = "no-repeat";
+      e.target.style.backgroundSize = "20px 20px";
+      e.target.style.backgroundPosition = "95% center";
       rightAnswer.current.style.backgroundColor = "#60BF88";
       rightAnswer.current.style.color = "white";
       rightAnswer.current.style.borderColor = "#60BF88";
+      rightAnswer.current.style.backgroundImage = `url(${_check24px.default})`;
+      rightAnswer.current.style.backgroundRepeat = "no-repeat";
+      rightAnswer.current.style.backgroundSize = "20px 20px";
+      rightAnswer.current.style.backgroundPosition = "95% center";
       setIsNext(true);
       setIsAnswerShown(false);
     }
@@ -34081,7 +34097,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./pages/quizz":"pages/quizz.js","./pages/result":"pages/result.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./pages/quizz":"pages/quizz.js","./pages/result":"pages/result.js","./check-24px.svg":"check-24px.svg","./cancel-24px.svg":"cancel-24px.svg"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

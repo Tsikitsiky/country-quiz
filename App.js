@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Quizz from './pages/quizz';
 import Result from './pages/result';
+import check from  './check-24px.svg';
+import cancel from  './cancel-24px.svg';
 
 function App() {
     const [countries, setCountries] = useState([]);
@@ -52,14 +54,26 @@ function App() {
             e.target.style.backgroundColor = "#60BF88";
             e.target.style.color = "white";
             e.target.style.borderColor = "#60BF88";
+            e.target.style.backgroundImage = `url(${check})`;
+            e.target.style.backgroundRepeat = "no-repeat";
+            e.target.style.backgroundSize = "20px 20px";
+            e.target.style.backgroundPosition = "95% center";
             setIsAnswerShown(true)
         } else {
             e.target.style.backgroundColor = "#EA8282";
             e.target.style.color = "white";
             e.target.style.borderColor = "#EA8282";
+            e.target.style.backgroundImage = `url(${cancel})`;
+            e.target.style.backgroundRepeat = "no-repeat";
+            e.target.style.backgroundSize = "20px 20px";
+            e.target.style.backgroundPosition = "95% center";
             rightAnswer.current.style.backgroundColor = "#60BF88";
             rightAnswer.current.style.color = "white";
             rightAnswer.current.style.borderColor = "#60BF88";
+            rightAnswer.current.style.backgroundImage = `url(${check})`;
+            rightAnswer.current.style.backgroundRepeat = "no-repeat";
+            rightAnswer.current.style.backgroundSize = "20px 20px";
+            rightAnswer.current.style.backgroundPosition = "95% center";
             setIsNext(true);
             setIsAnswerShown(false);
        }

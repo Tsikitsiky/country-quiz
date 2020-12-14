@@ -1,14 +1,13 @@
 # Country Quiz
+I created this fun game to test your geographical knowledge. See how many questions you can get correct in a row.
 
-## Overview
-
--   The demo can be seen on <a href="https://country-quiz-sarah.netlify.app/">Demo</a>
+## User stories
 
 -   There are 3 types of question: a city is the capital of.., a flag belong to country.., and people are from...
 -   Users can select an answer
 -   Users can see if the answer is correct or incorrect
 -   When the answer is correct, users can move on to the next question
--   When the answer is incorrect, users can see my results and try again
+-   When the answer is incorrect, users can see the result and try again
 -   Users can try again and again
 
 ### Built With
