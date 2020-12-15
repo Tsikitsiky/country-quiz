@@ -26,6 +26,7 @@ function Quizz({
                         value={randomAnswerOption[0]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[0] === randomCountry.name ? rightAnswer : null} 
+                        disabled={IsNext}
                     >
                          {randomAnswerOption[0]}
                     </button>
@@ -33,6 +34,7 @@ function Quizz({
                         value={randomAnswerOption[1]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[1] === randomCountry.name ? rightAnswer : null}
+                        disabled={IsNext}
                     >
                          {randomAnswerOption[1]}
                     </button>
@@ -40,6 +42,7 @@ function Quizz({
                         value={randomAnswerOption[2]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[2] === randomCountry.name ? rightAnswer : null}
+                        disabled={IsNext}
                     >
                            {randomAnswerOption[2]}
                     </button>
@@ -47,6 +50,7 @@ function Quizz({
                         value={randomAnswerOption[3]} 
                         onClick={handleClick}
                         ref={randomAnswerOption[3] === randomCountry.name ? rightAnswer : null}
+                        disabled={IsNext}
                     >
                            {randomAnswerOption[3]}
                     </button>

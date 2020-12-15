@@ -48,7 +48,7 @@ function App() {
 
     //check whether the answer is right or wrong and change the background color
     function handleClick(e) {
-        console.log(e.target.value + " - " + randomCountry.name )
+        //console.log(e.target.value + " - " + randomCountry.name )
         if(e.target.value === randomCountry.name) {
             setIsNext(true);
             e.target.style.backgroundColor = "#60BF88";
@@ -90,8 +90,6 @@ function App() {
             rightAnswer.current.style.backgroundColor = "transparent";
             rightAnswer.current.style.color = "#6066D0";
             rightAnswer.current.style.borderColor = "#6066D0";
-            //get the next question by type
-            // setNumber(Math.floor(Math.random() * 3))
         } else {
             //display the result
             setIsResult(true);
