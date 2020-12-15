@@ -34090,9 +34090,7 @@ function App() {
   })) : /*#__PURE__*/_react.default.createElement("button", {
     onClick: getRandomCountry,
     className: "startBtn"
-  }, "Start"), /*#__PURE__*/_react.default.createElement("p", {
-    className: "footer"
-  }, "Sarah @ DevChallenges.io"));
+  }, "Start"));
 }
 
 var _default = App;
@@ -34139,7 +34137,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60064" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60361" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
